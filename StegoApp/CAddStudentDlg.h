@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "afxdialogex.h"
-#include "resource.h" // Убедись, что IDD_ADD_STUDENT_DIALOG определен в ресурсах
+#include "resource.h" 
 
 class CAddStudentDlg : public CDialogEx
 {

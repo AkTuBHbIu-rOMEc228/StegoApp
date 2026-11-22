@@ -18,7 +18,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);
-	virtual BOOL OnInitDialog(); // ВАЖНО: добавляем объявление!
+	virtual BOOL OnInitDialog(); 
 
 	DECLARE_MESSAGE_MAP()
 };

@@ -60,7 +60,6 @@ void CStatsDlg::LoadFilters()
 	m_comboFilterGroup.SetItemData(0, 0);
 
 	// Виды работ (строго 4 вида + "Все")
-		// Виды работ (строго 4 вида + "Все")
 	m_comboFilterWork.AddString(_T("Все виды работ"));
 	m_comboFilterWork.AddString(_T("Курсовая"));
 	m_comboFilterWork.AddString(_T("Лабораторная"));
@@ -210,7 +209,7 @@ void CStatsDlg::UpdateStats()
 				spaces += sp;
 				zw += zwF;
 				homo += ho;
-				// Считаем уникальных студентов (упрощенно, можно потом доработать)
+				// Считаем уникальных студентов
 				if (totalW == 1) totalS = 1;
 			}
 

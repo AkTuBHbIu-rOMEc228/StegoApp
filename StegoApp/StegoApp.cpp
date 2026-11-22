@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "StegoApp.h"
 #include "StegoAppDlg.h"
-#include "CLoginDlg.h" // Подключаем окно логина
+#include "CLoginDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -35,16 +35,16 @@ BOOL CStegoAppApp::InitInstance()
 	CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
 	SetRegistryKey(_T("Локальные приложения"));
 
-	// 1. СНАЧАЛА ОКНО ЛОГИНА
+	// 1. ОКНО ЛОГИНА
 	CLoginDlg loginDlg;
 	if (loginDlg.DoModal() != IDOK)
 	{
-		return FALSE; // Если нажали Отмена - программа закрывается
+		return FALSE; 
 	}
 
-	// 2. ПОТОМ ГЛАВНОЕ ОКНО
+	// 2. ГЛАВНОЕ ОКНО
 	CStegoAppDlg dlg;
-	dlg.m_teacherId = loginDlg.m_loggedTeacherId; // Передаем ID вошедшего препода
+	dlg.m_teacherId = loginDlg.m_loggedTeacherId; // Передаем ID вошедшего преподавателя
 	m_pMainWnd = &dlg;
 	dlg.DoModal();
 

@@ -87,7 +87,6 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
     ON_WM_SYSCOMMAND()
     ON_WM_PAINT()
     ON_WM_QUERYDRAGICON()
-    // === ВОТ ЭТА СТРОЧКА ОТВЕЧАЕТ ЗА КНОПКУ ===
     ON_BN_CLICKED(IDC_BTN_LOGIN, &CLoginDlg::OnBnClickedBtnLogin)
 END_MESSAGE_MAP()
 

@@ -9,7 +9,7 @@ class CLoginDlg : public CDialogEx
 	DECLARE_DYNAMIC(CLoginDlg)
 
 public:
-	int m_loggedTeacherId = 0; // <--- ДОБАВЬ ЭТО
+	int m_loggedTeacherId = 0; 
 	CEdit m_editLogin;
 	CEdit m_editPassword;
 	afx_msg void OnBnClickedBtnLogin();

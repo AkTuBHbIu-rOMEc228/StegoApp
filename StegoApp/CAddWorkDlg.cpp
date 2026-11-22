@@ -98,8 +98,8 @@ void CAddWorkDlg::OnBnClickedOk()
 
     // 2. Получаем название работы и текст
     CString workTitle, workText;
-    m_editTitle.GetWindowText(workTitle); // Убедись, что ID поля называется IDC_EDIT_TITLE
-    m_editText.GetWindowText(workText);   // Убедись, что ID поля называется IDC_EDIT_WORK_TEXT
+    m_editTitle.GetWindowText(workTitle); 
+    m_editText.GetWindowText(workText);   
 
     if (workTitle.IsEmpty()) {
         AfxMessageBox(_T("Введите название работы!"), MB_OK | MB_ICONWARNING);
@@ -126,8 +126,8 @@ void CAddWorkDlg::OnBnClickedOk()
 
         if (SQL_SUCCEEDED(ret))
         {
-            // Берем первую попавшуюся дисциплину из базы (или добавь ComboBox для дисциплин)
-            int disciplineId = 1; // ВРЕМЕННО: ставим ID 1. Если нужно выбирать, добавь ComboBox.
+            // Берем первую попавшуюся дисциплину из базы
+            int disciplineId = 1; 
 
             SQLLEN cbStudentId = 0, cbDisciplineId = 0, cbTitle = SQL_NTS, cbText = SQL_NTS;
 
@@ -150,7 +150,7 @@ void CAddWorkDlg::OnBnClickedOk()
             }
             else
             {
-                // Выводим ТОЧНУЮ ошибку базы, чтобы понять, что не так
+                
                 SQLWCHAR sqlState[6], message[500];
                 SQLSMALLINT msgLen;
                 SQLINTEGER nativeError;
@@ -186,7 +186,6 @@ void CAddWorkDlg::OnBnClickedBtnAddNewStudent()
 
 		// Ищем добавленного студента (по последнему ID или по имени)
 		// Так как мы не возвращаем ID из диалога, просто выберем последнего в списке (нового)
-		// Или, для надежности, выберем первого (если список отсортирован по алфавиту, он может быть не первым)
 		if (m_comboStudent.GetCount() > 0)
 		{
 			m_comboStudent.SetCurSel(m_comboStudent.GetCount() - 1); // Выбираем последнего добавленного

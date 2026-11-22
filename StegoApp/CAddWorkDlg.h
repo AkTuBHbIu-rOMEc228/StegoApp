@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "afxdialogex.h"
-#include <afxcmn.h> // Для CComboBox
+#include <afxcmn.h> 
 
 class CAddWorkDlg : public CDialogEx
 {
@@ -24,8 +24,8 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // поддержка DDX/DDV
-	virtual BOOL OnInitDialog(); // <--- ДОБАВЛЕНО
-	void LoadStudents(); // <-- НОВАЯ ФУНКЦИЯ
+	virtual BOOL OnInitDialog();
+	void LoadStudents(); 
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedOk();

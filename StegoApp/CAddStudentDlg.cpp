@@ -7,7 +7,7 @@
 
 IMPLEMENT_DYNAMIC(CAddStudentDlg, CDialogEx)
 
-// КОНСТРУКТОР (здесь ничего не трогаем с контролами!)
+// КОНСТРУКТОР
 CAddStudentDlg::CAddStudentDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_ADD_STUDENT_DIALOG, pParent)
 {
@@ -17,7 +17,7 @@ CAddStudentDlg::~CAddStudentDlg()
 {
 }
 
-// ПРИВЯЗКА ПЕРЕМЕННЫХ (DDX)
+// ПРИВЯЗКА ПЕРЕМЕННЫХ
 void CAddStudentDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
@@ -139,7 +139,6 @@ void CAddStudentDlg::OnBnClickedOk()
 
             if (SQL_SUCCEEDED(ret))
             {
-                // Успех! Закрываем диалог с результатом IDOK
                 CDialogEx::OnOK();
             }
             else

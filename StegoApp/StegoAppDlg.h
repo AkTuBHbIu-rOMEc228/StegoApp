@@ -13,7 +13,7 @@ public:
 	CEdit m_editDetails;
 	CComboBox m_comboStudents;
 	CComboBox m_comboWorks;
-	CComboBox m_comboTemplates; // Наш новый ComboBox для шаблонов
+	CComboBox m_comboTemplates; 
 	CButton m_checkSpaces;
 	CButton m_checkInvisible;
 	CButton m_checkHomoglyphs;
@@ -24,8 +24,8 @@ public:
 	CButton m_btnSave;
 	CButton m_btnShowInfo;
 	CButton m_btnAddWork;
-	CButton m_btnHistory; // Новая кнопка
-	CButton m_btnStats;   // Новая кнопка
+	CButton m_btnHistory; 
+	CButton m_btnStats;   
 	CButton m_btnSaveTemplate;
 
 protected:

@@ -106,8 +106,8 @@ BOOL CStegoAppDlg::OnInitDialog()
 			_T("CAST(g.name AS VARCHAR(20) CHARACTER SET UTF8) ")
 			_T("FROM Students s ")
 			_T("JOIN Groups g ON s.group_id = g.group_id ")
-			_T("JOIN WrittenWorks w ON s.student_id = w.student_id ")  // <- ВАЖНО
-			_T("JOIN Disciplines d ON w.discipline_id = d.discipline_id "); // <- ВАЖНО
+			_T("JOIN WrittenWorks w ON s.student_id = w.student_id ")  
+			_T("JOIN Disciplines d ON w.discipline_id = d.discipline_id ");
 
 		// Фильтр: только те студенты, у которых есть работы по дисциплинам, которые ведет этот преподаватель
 		CString sqlFilter;
@@ -131,7 +131,6 @@ BOOL CStegoAppDlg::OnInitDialog()
 			}
 		}
 		// === ЗАГРУЗКА ШАБЛОНОВ ===
-				// === ЗАГРУЗКА ШАБЛОНОВ ===
 		m_comboTemplates.ResetContent();
 		SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt);
 
@@ -164,7 +163,7 @@ BOOL CStegoAppDlg::OnInitDialog()
 			m_comboTemplates.SetCurSel(0);
 		}
 
-		SQLDisconnect(hDbc); // <--- Отключаемся ТОЛЬКО ЗДЕСЬ, после всех запросов
+		SQLDisconnect(hDbc);
 	}
 	SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
 	SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
@@ -328,7 +327,7 @@ void CStegoAppDlg::OnBnClickedBtnSaveDb()
 			detailsText = _T("Найдены множественные скрытые символы");
 		}
 
-		// === НАДЕЖНАЯ КОНВЕРТАЦИЯ В HEX ===
+		// НАДЕЖНАЯ КОНВЕРТАЦИЯ В HEX
 		// Переводим широкую строку (UTF-16) в UTF-8 байты, 
 		// а затем каждый байт превращаем в HEX-символы.
 		int utf8Len = WideCharToMultiByte(CP_UTF8, 0, detailsText, -1, NULL, 0, NULL, NULL);
@@ -582,12 +581,12 @@ bool CStegoAppDlg::CheckHomoglyphs(const CString& text, CString& details)
 void CStegoAppDlg::OnBnClickedBtnAddWork()
 {
 	CAddWorkDlg dlg;
-	dlg.m_teacherId = m_teacherId; // Передаем ID препода
+	dlg.m_teacherId = m_teacherId; // Передаем ID преподавателя
 
 	if (dlg.DoModal() == IDOK) {
-		// Если работа добавлена, перезагрузим список студентов/работ (по желанию)
+		// Если работа добавлена, перезагрузим список студентов/работ
 		m_comboStudents.ResetContent();
-		OnInitDialog(); // Хитрый ход: перезагружаем данные
+		OnInitDialog(); // перезагружаем данные
 	}
 }
 
@@ -596,7 +595,7 @@ void CStegoAppDlg::OnCbnSelchangeComboTemplates()
 	int sel = m_comboTemplates.GetCurSel();
 	if (sel == CB_ERR) return;
 
-	// Получаем ID, который мы привязали на Шаге 1
+	// Получаем ID
 	DWORD_PTR templateId = m_comboTemplates.GetItemData(sel);
 	if (templateId == 0 || templateId == CB_ERR)
 	{
@@ -642,7 +641,6 @@ void CStegoAppDlg::OnCbnSelchangeComboTemplates()
 
 void CStegoAppDlg::OnBnClickedBtnHistory()
 {
-	// Теперь не нужно проверять, выбран ли студент!
 	CHistoryDlg dlg;
 	dlg.m_teacherId = m_teacherId; // Передаем ID преподавателя
 	dlg.DoModal();
@@ -756,3 +754,4 @@ void CStegoAppDlg::OnBnClickedBtnSaveTemplate()
 	SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
 	SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
 }
+// Финальная версия программы готова к защите
